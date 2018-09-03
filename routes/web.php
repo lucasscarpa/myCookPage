@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::group(['prefix' => 'fornecedor', 'as' => 'fornecedor.'], function () {
+    Route::group(['prefix' => 'painel-gerencial', 'as' => 'painel-gerencial.'], function () {
+        Route::get('/', ['as' => 'index', 'uses' => 'Empresa\Fornecedor\PainelGerencialController@index']);
+    });
+});
