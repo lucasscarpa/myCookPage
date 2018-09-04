@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/teste', 'HomeController@teste')->name('teste');
+
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['prefix' => 'fornecedor', 'as' => 'fornecedor.'], function () {
