@@ -23,7 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/material-dashboard.min.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="dark-edition">
     <div class="wrapper ">
         @include('template.component.side-bar.index')
         <main class="py-4">

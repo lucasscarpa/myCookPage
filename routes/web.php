@@ -23,6 +23,12 @@ Route::get('/teste', 'HomeController@teste')->name('teste');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
+Route::group(['prefix' => 'administrativo', 'as' => 'administrativo.'], function () {
+    Route::group(['prefix' => 'usuario', 'as' => 'usuario.'], function () {
+        Route::get('/', ['as' => 'index', 'uses' => 'Administrativo\UsuarioController@index']);
+    });
+});
+
 Route::group(['prefix' => 'fornecedor', 'as' => 'fornecedor.'], function () {
     Route::group(['prefix' => 'painel-gerencial', 'as' => 'painel-gerencial.'], function () {
         Route::get('/', ['as' => 'index', 'uses' => 'Empresa\Fornecedor\PainelGerencialController@index']);

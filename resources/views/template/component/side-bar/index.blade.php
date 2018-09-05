@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-2.jpg">
+<div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
             @if(isset(Auth::user()->name))
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./user.html">
+                <a class="nav-link" href="{{route('administrativo.usuario.index')}}">
                     <i class="material-icons">person</i>
                     <p>User Profile</p>
                 </a>
