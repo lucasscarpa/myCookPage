@@ -18,7 +18,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuarios = $this->usuario->all();
-
+        
         return view('administrativo.usuario.index')
             ->with('usuarios', $usuarios);
     }
