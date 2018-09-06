@@ -11,13 +11,13 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item active  ">
-                <a class="nav-link" href="./dashboard.html">
+                <a class="nav-link" href="{{ route('home') }}">
                     <i class="material-icons">dashboard</i>
                     <p>Minhas Receitas</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="{{route('administrativo.usuario.index')}}">
+                <a class="nav-link" href="{{ route('administrativo.usuario.index') }}">
                     <i class="material-icons">person</i>
                     <p>User Profile</p>
                 </a>

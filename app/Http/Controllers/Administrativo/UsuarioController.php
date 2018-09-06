@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Administrativo;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UsuarioRequest as UsuarioRequest;
-use App\Models\Usuario\Usuario as Usuario;
+use App\Models\Usuario\Interfaces\RepositoryEloquent as Usuario;
 
 class UsuarioController extends Controller
 {
@@ -30,7 +31,16 @@ class UsuarioController extends Controller
     public function cadastrar(UsuarioRequest $request)
     {
         $validation = $request->validated();
-        dump($validation);
+
+        $this->usuario->nome = $validation['nome'];
+        $this->usuario->email = $validation['email'];
+        $this->usuario->senha = Hash::make($validation['senha']);
+        $this->usuario->endereco = $validation['endereco'];
+
+        $this->usuario->save();
+
+        return redirect()->route('administrativo.usuario.index')->with('success', 'Usuário cadastrado com sucesso!');
+        
     }
 
 }

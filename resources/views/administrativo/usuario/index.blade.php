@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+@if(isset($success))
+    <div class="row">
+        @foreach($success as $message)
+            <div class="alert alert-danger" role="alert">
+                {{ $message }}
+            </div>
+        @endforeach
+    </div>
+@endif
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -13,7 +22,6 @@
                 <a class="btn btn-primary pull-right" href="{{ route('administrativo.usuario.editar') }}" role="button">
                     Deletar
                 </a>
-                
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -41,7 +49,7 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td>{{ $usuario->name }}</td>
+                                <td>{{ $usuario->nome }}</td>
                                 <td>{{ $usuario->email }}</td>
                             <tr>
                             @empty

@@ -24,17 +24,18 @@ class UsuarioRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
+            'nome' => 'required|max:255',
             'email' => 'required|unique:usuario',
             'senha' => 'required',
-            'confirma_senha' => 'required|unique:usuario,senha'
+            'confirma_senha' => 'required|unique:usuario,senha',
+            'endereco' => '',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'O campo nome é obrigatório',
+            'nome.required' => 'O campo nome é obrigatório',
             'email.required'  => 'O campo email é obrigatório',
             'senha.required'  => 'Preencha os dois campos de senha',
             'confirma_senha.required'  => 'Preencha os dois campos de senha',

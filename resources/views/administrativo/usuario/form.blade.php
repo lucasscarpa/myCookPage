@@ -21,7 +21,7 @@
                     <div class="col-md-8 offset-md-2">
                         <div class="form-group">
                             <label class="bmd-label-floating">Nome</label>
-                            <input id="name" name="name" type="text" class="form-control" @if(isset($usuario)) value="{{ $usuario->name }}" @endif>
+                            <input id="nome" name="nome" type="text" class="form-control" @if(isset($usuario)) value="{{ $usuario->nome }}" @endif>
                         </div>
                     </div>
                 </div>
@@ -30,6 +30,14 @@
                         <div class="form-group">
                             <label class="bmd-label-floating">Email</label>
                             <input id="email" name="email" type="email" class="form-control" @if(isset($usuario)) value="{{ $usuario->email }}" @endif>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="form-group">
+                            <label class="bmd-label-floating">Endereço</label>
+                            <input id="endereco" name="endereco" type="endereco" class="form-control" @if(isset($usuario)) value="{{ $usuario->endereco }}" @endif>
                         </div>
                     </div>
                 </div>

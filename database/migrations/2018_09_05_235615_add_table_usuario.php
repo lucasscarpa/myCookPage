@@ -19,6 +19,7 @@ class AddTableUsuario extends Migration
             $table->string('email')->unique();
             $table->string('endereco');
             $table->string('senha');
+            $table->softDeletes();
             $table->timestamps();
             $table->rememberToken();
         });
