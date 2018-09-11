@@ -54,9 +54,65 @@ class RepositoryEloquent implements RepositoryEloquentInterface
 
     }
 
-    public function search(array $data)
+    public function search(array $data, $with = null, $fields = [])
     {
+        $query = $this->usuario->query();
 
+        if ($with) {
+            $query->with($with);
+        }
+
+        if( $data['email'] ) {
+            $query->whereIn('email', is_array($data['email']) ? $data['email'] : [ $data['email'] ]);
+        }
+
+        return $query->get();
+
+    }
+
+    public function autenticacao($input)
+    {
+        $filtro = [
+            'email' => $input['email'],
+            'collection' => true
+        ];
+
+        $usuarios = $this->search($filtro);
+        $totalUsuarios = $usuarios->count();
+
+        if ( ! $this->verificarPassword( $input['senha'], $usuarios->first()->getAuthPassword()) ) {
+            return false;
+        }
+
+        if( $totalUsuarios > 1 ) {
+            return $usuarios->toArray();
+        }
+
+        return $usuarios->first();
+    }
+
+    public function verificarPassword($senha, $hashSenha)
+    {
+        return \Hash::check($senha, $hashSenha);
+    }
+
+    /**
+     * Verifica o tipo do usuário e redireciona para sua pagina correta.
+     *
+     * @author Danilo Correa <dcorrea@autodoc.com.br>
+     */
+    public function dashboard()
+    {
+        dd($this->auth->user()->empresa()->get());
+        $usuario = $this->auth->user()->empresa()->get();
+
+        if ($usuario->count()) {
+            return redirect()
+                ->route('dashboard.empresa.historico-individual.index');
+        } else {
+            return redirect()
+                ->route('dashboard.construtora.index');
+        }
     }
 
 }

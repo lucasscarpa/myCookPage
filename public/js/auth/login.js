@@ -1,4 +1,5 @@
 var working = false;
+/*
 $('.login').on('submit', function (e) { 
     e.preventDefault();
     
@@ -24,7 +25,7 @@ $('.login').on('submit', function (e) {
             data: $('form').serialize(),
             
             success: function (data) {
-                window.location.replace('/login')
+                window.location.replace('www.uol.com.br')
             }
                 
         });
@@ -38,3 +39,4 @@ $('.login').on('submit', function (e) {
 
     }, 3000);
 });
+*/
