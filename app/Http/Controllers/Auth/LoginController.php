@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Usuario\Interfaces\RepositoryEloquent as UsuarioEloquent;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -32,16 +34,30 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UsuarioEloquent $usuario)
     {
         $this->middleware('guest')->except('logout');
+        $this->usuario = $usuario;
+    }
+
+    public function index(Request $request)
+    {
+        session()->flush();
+
+        if ($this->usuario->auth->check())
+        {
+            
+        }
+        
+        return view('auth.login')
+            ->with('redirect', $request->input('redirect'));
     }
 
     public function logout()
     {
         \Auth::logout();
-        return view('welcome');
 
+        return view('welcome');
     }
 
     public function validar(LoginFormRequest $request)

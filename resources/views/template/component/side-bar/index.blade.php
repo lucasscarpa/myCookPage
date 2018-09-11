@@ -1,8 +1,8 @@
 <div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-            @if(isset(Auth::user()->name))
-            {{ Auth::user()->name }}
+            @if(isset(Auth::user()->nome))
+            {{ Auth::user()->nome }}
             @else
             Usuário não encontrado
             @endif
