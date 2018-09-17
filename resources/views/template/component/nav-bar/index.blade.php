@@ -45,14 +45,14 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">
+                    <a class="nav-link" href="{{route('login.logoff')}}">
                         <i class="material-icons">person</i>
                         <p class="d-lg-none d-md-block">
                             Account
                         </p>
                     </a>
                 </li>
-            </ul>   
+            </ul>
         </div>
     </div>
 </nav>

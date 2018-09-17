@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginFormRequest;
 use App\Models\Usuario\Interfaces\RepositoryEloquent as UsuarioEloquent;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -49,25 +50,23 @@ class LoginController extends Controller
             ->with('redirect', $request->input('redirect'));
     }
 
-    public function logout()
+    public function sair()
     {
         \Auth::logout();
 
-        return view('welcome');
+        return view('login.index');
     }
 
     public function validar(LoginFormRequest $request)
     {
         $usuarioLogado = $this->usuario->autenticacao($request->all());
 
+        $this->usuario->session($usuarioLogado->toArray(), $request);
+
         if($usuarioLogado) {
-            $this->usuario->dashboard();
+            return view('home');
         } else {
             session()->flash('error', ['e-mail ou senha inválido']);
-
-            return $this->selectEmpresa($request);
         }
-
-        
     }
 }

@@ -17,7 +17,7 @@ class RepositoryEloquent implements RepositoryEloquentInterface
         $this->usuario = $usuario;
     }
 
-    
+
     public function all($columns = ['*'])
     {
         return $this->usuario->all();
@@ -113,6 +113,11 @@ class RepositoryEloquent implements RepositoryEloquentInterface
             return redirect()
                 ->route('dashboard.construtora.index');
         }
+    }
+
+    public function session($usuario, $request)
+    {
+        $request->session()->put('usuario', $usuario);
     }
 
 }

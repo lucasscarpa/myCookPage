@@ -1,23 +1,19 @@
 <div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-            @if(isset(Auth::user()->nome))
-            {{ Auth::user()->nome }}
-            @else
-            Usuário não encontrado
-            @endif
+            {{session()->get('usuario')['nome']}}
         </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item active  ">
-                <a class="nav-link" href="{{ route('home') }}">
+                <a class="nav-link" href="#">
                     <i class="material-icons">dashboard</i>
                     <p>Minhas Receitas</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="{{ route('administrativo.usuario.index') }}">
+                <a class="nav-link" href="#">
                     <i class="material-icons">person</i>
                     <p>User Profile</p>
                 </a>

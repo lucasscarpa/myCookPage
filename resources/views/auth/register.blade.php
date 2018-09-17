@@ -11,7 +11,7 @@
 
 <body>
 <div class="wrapper">
-<form method="POST" action="{{ route('register') }}" class="login">
+<form method="POST" action="{{ route('register', ['redirect' => $redirect]) }}" class="login">
     @csrf
     <p class="title">Register</p>
     <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus placeholder="Nome">
