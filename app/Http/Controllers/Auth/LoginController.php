@@ -61,12 +61,12 @@ class LoginController extends Controller
     {
         $usuarioLogado = $this->usuario->autenticacao($request->all());
 
-        $this->usuario->session($usuarioLogado->toArray(), $request);
-
         if($usuarioLogado) {
+            $this->usuario->session($usuarioLogado->toArray(), $request);
             return view('home');
         } else {
             session()->flash('error', ['e-mail ou senha inválido']);
+            return view('login.index');
         }
     }
 }

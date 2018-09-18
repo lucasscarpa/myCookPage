@@ -35,13 +35,13 @@ class Authenticate
     public function handle($request, Closure $next)
     {
 
-        if ($this->auth->guest()) 
+        if ($this->auth->guest())
         {
             if ($request->ajax())
                 return response('Unauthorized.', 401);
             else
                return redirect()
-                    ->route('login.index', ['redirect' => $request->path()]);
+                    ->route('login', ['redirect' => $request->path()]);
         }
 
         return $next($request);

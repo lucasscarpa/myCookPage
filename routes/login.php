@@ -1,9 +1,9 @@
 <?php
 
 Route::group(['prefix' => 'login'], function(){
-	
+
 	Route::get('/',[
-		'as'	=> 'login.index',
+		'as'	=> 'login',
 		'uses'	=> 'Auth\LoginController@index'
 	]);
 

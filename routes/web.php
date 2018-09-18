@@ -12,20 +12,11 @@
 */
 
 Route::get('/', function(){
-	return redirect()->route('login.index');
+	return redirect()->route('login');
 });
 
 
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth'], 'as' => 'dashboard.'], function () {
-	 Route::group(['prefix' => 'categoria', 'as' => 'categoria.'], function () {
-        Route::get('/',           ['as' => 'index',    'uses' => 'CategoriaController@index']);
-    });
-}
-
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
-
-
-
 
 Route::get('/public', function () {
     return 'Olá, mundo!';
