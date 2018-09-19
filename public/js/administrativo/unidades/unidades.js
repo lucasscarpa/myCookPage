@@ -9,7 +9,7 @@ $(function(){
 var $oBotaoExcluir = $('#btn-excluir');
 	$oBotaoExcluir.click(function(){
 		var $oTable = $('#lista-unidades'),
-			$oForm = $('#form-construtora'),
+			$oForm = $('#form-unidades'),
 			$checked = $oTable.find(':checkbox:checked');
 
 		if ($checked.length)

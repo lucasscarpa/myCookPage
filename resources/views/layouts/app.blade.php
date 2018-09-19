@@ -27,6 +27,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/material-dashboard.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    @yield('styles')
+
 </head>
 <body class="dark-edition">
     <div class="wrapper ">
