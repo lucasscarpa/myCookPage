@@ -1,7 +1,7 @@
 <div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-            {{session()->get('usuario')['nome']}}
+            {{Auth::user()->nome}}
         </a>
     </div>
     <div class="sidebar-wrapper">

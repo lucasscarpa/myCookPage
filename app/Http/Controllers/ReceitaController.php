@@ -13,6 +13,6 @@ class ReceitaController extends Controller
 
 	public function index()
 	{
-		return view('administrativo.receita.index');
+		return view('administrativo.receitas.index');
 	}
 }

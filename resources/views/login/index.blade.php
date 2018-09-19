@@ -13,7 +13,10 @@
 
 <body>
 <div class="wrapper">
-  <form method="POST" action="{{ route('login.validar') }}" class="login">
+  <form method="POST" action="{{ route('login.autenticar') }}" class="login">
+
+    @include('template.mensagens')
+
     {{ csrf_field() }}
     <p class="title">Log in</p>
     @if(session()->get('error'))
@@ -21,7 +24,7 @@
     @endif
     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Email">
     <i class="fa fa-user"></i>
-    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="senha" required placeholder="Senha" />
+    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Senha" />
     <i class="fa fa-key"></i>
     <a href="#">Esqueceu sua senha?</a>
     <button type="submit">

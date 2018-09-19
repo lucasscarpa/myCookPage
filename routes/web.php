@@ -10,28 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function() {
+    return redirect()->route('categoria.index');
+});
 
-Route::get('/', function(){
-	return redirect()->route('login');
+Route::prefix('categoria')->as('categoria.')->group(function () {
+    Route::get('/', 'CategoriaController@index')->name('index');
 });
 
 
-Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
-Route::get('/public', function () {
-    return 'Olá, mundo!';
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/teste', 'HomeController@teste')->name('teste');
+Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
 
 
-Route::group(['prefix' => 'administrativo', 'as' => 'administrativo.'], function () {
-    Route::group(['prefix' => 'usuario', 'as' => 'usuario.'], function () {
-        Route::get('/',                 ['as' => 'index',       'uses' => 'Administrativo\UsuarioController@index']);
-        Route::get('/editar/{id?}',     ['as' => 'editar',      'uses' => 'Administrativo\UsuarioController@edit']);
-        Route::post('/cadastrar',       ['as' => 'cadastrar',   'uses' => 'Administrativo\UsuarioController@cadastrar']);
+    Route::group(['prefix' => 'administrativo', 'as' => 'administrativo.'], function () {
+         Route::group(['prefix' => 'receitas', 'as' => 'receitas.'], function () {
+            Route::get('/',           ['as' => 'index',    'uses' => 'ReceitaController@index'], function () {
+            	dd('oi');
+            });
+
+        });
     });
-
 });

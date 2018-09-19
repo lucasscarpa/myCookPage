@@ -80,7 +80,7 @@ class RepositoryEloquent implements RepositoryEloquentInterface
         $usuarios = $this->search($filtro);
         $totalUsuarios = $usuarios->count();
 
-        if ( ! $this->verificarPassword( $input['senha'], $usuarios->first()->getAuthPassword()) ) {
+        if ( ! $this->verificarPassword( $input['password'], $usuarios->first()->getAuthPassword()) ) {
             return false;
         }
 

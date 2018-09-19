@@ -45,7 +45,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('login.logoff')}}">
+                    <a class="nav-link" href="{{ route('login.logout') }}">
                         <i class="material-icons">person</i>
                         <p class="d-lg-none d-md-block">
                             Account

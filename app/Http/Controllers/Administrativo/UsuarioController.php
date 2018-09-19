@@ -14,11 +14,11 @@ class UsuarioController extends Controller
     {
         $this->usuario = $usuario;
     }
-    
+
     public function index()
     {
         $usuarios = $this->usuario->all();
-        
+
         return view('administrativo.usuario.index')
             ->with('usuarios', $usuarios);
     }
@@ -40,7 +40,7 @@ class UsuarioController extends Controller
         $this->usuario->save();
 
         return redirect()->route('administrativo.usuario.index')->with('success', 'Usuário cadastrado com sucesso!');
-        
+
     }
 
 }

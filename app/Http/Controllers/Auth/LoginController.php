@@ -8,6 +8,7 @@ use App\Models\Usuario\Interfaces\RepositoryEloquent as UsuarioEloquent;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Session;
 
 class LoginController extends Controller
 {
@@ -29,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/categoria';
 
     /**
      * Create a new controller instance.
@@ -44,29 +45,32 @@ class LoginController extends Controller
 
     public function index(Request $request)
     {
-        session()->flush();
-
-        return view('login.index')
-            ->with('redirect', $request->input('redirect'));
-    }
-
-    public function sair()
-    {
-        \Auth::logout();
-
         return view('login.index');
     }
 
-    public function validar(LoginFormRequest $request)
+    public function logout()
+    {
+        Auth::logout();
+        Session::flush();
+
+        return redirect()->route('login.index')
+            ->with('sucesso', ['Você saiu do sistema']);
+    }
+
+    public function autenticar(LoginFormRequest $request)
     {
         $usuarioLogado = $this->usuario->autenticacao($request->all());
 
         if($usuarioLogado) {
-            $this->usuario->session($usuarioLogado->toArray(), $request);
-            return view('home');
+
+            Auth::attempt($request->only('email', 'password'));
+            return redirect()->intended($this->redirectTo);
+
         } else {
+
             session()->flash('error', ['e-mail ou senha inválido']);
             return view('login.index');
+
         }
     }
 }
