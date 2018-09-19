@@ -6,16 +6,22 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="nav-item active  ">
-                <a class="nav-link" href="#">
+            <li class="nav-item active">
+                <a class="nav-link" data-toggle="collapse" href="#administrativo" role="button" aria-expanded="false" aria-controls="administrativo" href="#">
                     <i class="material-icons">dashboard</i>
-                    <p>Minhas Receitas</p>
+                    <p>Administrativo</p>
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item collapse" id="administrativo">
                 <a class="nav-link" href="#">
                     <i class="material-icons">person</i>
-                    <p>User Profile</p>
+                    <p>Receitas</p>
+                </a>
+            </li>
+            <li class="nav-item collapse" id="administrativo">
+                <a class="nav-link" href="{{ route('dashboard.administrativo.unidades.index') }}">
+                    <i class="material-icons">person</i>
+                    <p>Unidades</p>
                 </a>
             </li>
             <li class="nav-item ">

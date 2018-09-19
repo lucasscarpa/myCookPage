@@ -24,6 +24,11 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
 
 
     Route::group(['prefix' => 'administrativo', 'as' => 'administrativo.'], function () {
+
+        Route::group(['prefix' => 'unidades', 'as' => 'unidades.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'UnidadesController@index']);
+        });
+
          Route::group(['prefix' => 'receitas', 'as' => 'receitas.'], function () {
             Route::get('/',           ['as' => 'index',    'uses' => 'ReceitaController@index'], function () {
             	dd('oi');

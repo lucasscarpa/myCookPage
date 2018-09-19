@@ -13,6 +13,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/material-dashboard.min.js') }}" defer></script>
+    <script src="{{ asset('js/bootbox.min.js') }}" defer></script>
+    <script href="cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    @yield('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -22,6 +26,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/material-dashboard.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 </head>
 <body class="dark-edition">
     <div class="wrapper ">
