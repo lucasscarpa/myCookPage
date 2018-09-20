@@ -15,7 +15,7 @@ Route::get('/', function() {
 });
 
 Route::prefix('categoria')->as('categoria.')->group(function () {
-    Route::get('/', 'CategoriaController@index')->name('index');
+    Route::get('/', 'CategoriasController@index')->name('index');
 });
 
 

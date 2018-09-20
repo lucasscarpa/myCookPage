@@ -80,7 +80,7 @@ class RepositoryEloquent implements RepositoryEloquentInterface
         $usuarios = $this->search($filtro);
         $totalUsuarios = $usuarios->count();
 
-        if ( ! $this->verificarPassword( $input['password'], $usuarios->first()->getAuthPassword()) ) {
+        if ( $totalUsuarios && ! $this->verificarPassword( $input['password'], $usuarios->first()->getAuthPassword()) ) {
             return false;
         }
 
@@ -94,25 +94,6 @@ class RepositoryEloquent implements RepositoryEloquentInterface
     public function verificarPassword($senha, $hashSenha)
     {
         return \Hash::check($senha, $hashSenha);
-    }
-
-    /**
-     * Verifica o tipo do usuário e redireciona para sua pagina correta.
-     *
-     * @author Danilo Correa <dcorrea@autodoc.com.br>
-     */
-    public function dashboard()
-    {
-        dd($this->auth->user()->empresa()->get());
-        $usuario = $this->auth->user()->empresa()->get();
-
-        if ($usuario->count()) {
-            return redirect()
-                ->route('dashboard.empresa.historico-individual.index');
-        } else {
-            return redirect()
-                ->route('dashboard.construtora.index');
-        }
     }
 
     public function session($usuario, $request)

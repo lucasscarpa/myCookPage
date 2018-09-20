@@ -62,12 +62,10 @@ class LoginController extends Controller
         $usuarioLogado = $this->usuario->autenticacao($request->all());
 
         if($usuarioLogado) {
-
             Auth::attempt($request->only('email', 'password'));
             return redirect()->intended($this->redirectTo);
 
         } else {
-
             session()->flash('error', ['e-mail ou senha inválido']);
             return view('login.index');
 

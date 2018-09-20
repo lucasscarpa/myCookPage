@@ -11,7 +11,7 @@
 
 <body>
 <div class="wrapper">
-  <form method="POST" action="{{ route('login') }}" class="login">
+  <form method="POST" action="{{ route('login.index') }}" class="login">
     @csrf
     <p class="title">Log in</p>
     <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Email">
