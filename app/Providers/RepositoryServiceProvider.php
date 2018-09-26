@@ -23,5 +23,15 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Models\Usuario\Interfaces\RepositoryEloquent',
             'App\Models\Usuario\RepositoryEloquent'
         );
+
+        $this->app->bind(
+            'App\Models\Receita\Interfaces\RepositoryEloquent',
+            'App\Models\Receita\RepositoryEloquent'
+        );
+
+        $this->app->bind(
+            'App\Models\Categoria\Interfaces\RepositoryEloquent',
+            'App\Models\Categoria\RepositoryEloquent'
+        );
     }
 }

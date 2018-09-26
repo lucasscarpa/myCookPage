@@ -5,7 +5,7 @@
 <div class="sidebar" data-color="orange" data-background-color="black" data-image="{{ asset('img/sidebar-2.jpg') }}">
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-            {{Auth::user()->nome}}
+            MyCookPage
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="{{route('dashboard.administrativo.receitas.index')}}">
+                <a class="nav-link" href="#">
                     <i class="material-icons">library_books</i>
                     <p>Typography</p>
                 </a>
@@ -48,7 +48,7 @@
             </li>
             <div class="collapse sub-item" id="administrativo">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{route('dashboard.administrativo.receita.index')}}">
                         <i class="material-icons">local_dining</i>
                         <p>Receitas</p>
                     </a>

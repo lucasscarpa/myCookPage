@@ -39,11 +39,11 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
             Route::get('/delete',       ['as' => 'delete',  'uses' => 'CategoriasController@destroy']);
         });
 
-         Route::group(['prefix' => 'receitas', 'as' => 'receitas.'], function () {
+         Route::group(['prefix' => 'receita', 'as' => 'receita.'], function () {
             Route::get('/',           ['as' => 'index',    'uses' => 'ReceitaController@index'], function () {
             	dd('oi');
             });
-
+            Route::get('/filtrar',    ['as' => 'filtrar',    'uses' => 'ReceitaController@filtrar']);
         });
     });
 });

@@ -25,7 +25,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth'], 'as' => 'dashbo
             Route::get('/',           ['as' => 'index',    'uses' => 'ReceitaController@index'], function () {
             	dd('oi');
             });
-
         });
     });
 });

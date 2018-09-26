@@ -2,9 +2,6 @@ $(document).ready( function () {
     $('#datatable').DataTable();
 } );
 
-$("#checkbox-all").click(function (){
-    $(this).closest("table").find(":checkbox").prop("checked", this.checked);
-});
 $(function(){
 var $oBotaoExcluir = $('#btn-excluir');
 	$oBotaoExcluir.click(function(){

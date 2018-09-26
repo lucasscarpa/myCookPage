@@ -14,11 +14,11 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('usuario')->insert([
-        	'nome' => 'Lucas Scarpa',
-        	'email' => 'lscarpa@autodoc.com.br',
-        	'endereco' => 'Rua Major Sertorio 734',
-        	'senha' => Hash::make('autodoc'),
-        	'created_at' => Carbon::now(),
+        	'nome'          => 'Lucas Scarpa',
+        	'email'         => 'lscarpa@autodoc.com.br',
+        	'endereco'      => 'Rua Major Sertorio 734',
+            'senha'         => \Hash::make('autodoc'),
+        	'created_at'    => Carbon::now(),
         ]);
     }
 }
