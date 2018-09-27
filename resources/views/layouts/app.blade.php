@@ -16,7 +16,8 @@
     <script src="{{ asset('js/main.js') }}" defer></script>
     <script href="cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    @yield('scripts')
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -45,5 +46,8 @@
             </div>
         </main>
     </div>
+    @yield('scripts')
 </body>
 </html>
+
+

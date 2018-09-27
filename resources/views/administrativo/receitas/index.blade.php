@@ -73,7 +73,7 @@
                     <header>
 						<h2 class="pull-left">Gerenciar Receitas ({{($receitas->count())}})</h2>
 						<div class="filter-block pull-right">
-							<a href="#" class="btn btn-primary pull-right">
+							<a href="{{ route('dashboard.administrativo.receita.form') }}" class="btn btn-primary pull-right">
 								<i class="fa fa-plus-circle fa-lg"></i> Cadastrar
 							</a>
 							<a href="#" id="btn-excluir" class="btn btn-primary pull-right">

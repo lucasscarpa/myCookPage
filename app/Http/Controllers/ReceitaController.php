@@ -28,4 +28,14 @@ class ReceitaController extends Controller
 		dd($request->all());
 
 	}
+
+	public function form()
+	{
+		return view('administrativo.receitas.form');
+	}
+
+	public function cadastrar(Request $request)
+	{
+		dd($request->all());
+	}
 }

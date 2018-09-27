@@ -43,7 +43,9 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
             Route::get('/',           ['as' => 'index',    'uses' => 'ReceitaController@index'], function () {
             	dd('oi');
             });
-            Route::get('/filtrar',    ['as' => 'filtrar',    'uses' => 'ReceitaController@filtrar']);
+            Route::get('/filtrar',          ['as' => 'filtrar',      'uses' => 'ReceitaController@filtrar']);
+            Route::get('/form',             ['as' => 'form',         'uses' => 'ReceitaController@form']);
+            Route::post('/cadastrar',        ['as' => 'cadastrar',    'uses' => 'ReceitaController@cadastrar']);
         });
     });
 });
