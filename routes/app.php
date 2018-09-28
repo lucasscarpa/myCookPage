@@ -15,9 +15,6 @@ Route::get('/teste', function(){
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth'], 'as' => 'dashboard.'], function () {
 
-    Route::group(['prefix' => 'categoria', 'as' => 'categoria.'], function () {
-        Route::get('/',           ['as' => 'index',    'uses' => 'CategoriaController@index']);
-    });
 
     Route::group(['prefix' => 'administrativo', 'as' => 'administrativo.'], function () {
 

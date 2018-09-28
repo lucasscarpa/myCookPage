@@ -15,4 +15,8 @@ class Categoria extends Model
         'nome',
     ];
 
+    public function getDataCriacaoAttribute()
+    {
+        return $this->created_at->format('d/m/Y');
+    }
 }

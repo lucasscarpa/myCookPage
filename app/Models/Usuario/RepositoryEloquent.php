@@ -4,11 +4,11 @@ namespace App\Models\Usuario;
 
 use autodoc\Events\ColaboradorModificado;
 use Illuminate\Auth\AuthManager as Auth;
-use App\Models\Usuario\Interfaces\RepositoryEloquent as RepositoryEloquentInterface;
+use library\Repositories\RepositoryInterface;
 use App\Models\Usuario\Usuario;
 use Carbon\Carbon;
 
-class RepositoryEloquent implements RepositoryEloquentInterface
+class RepositoryEloquent implements RepositoryInterface
 {
 
     public function __construct(Usuario $usuario, Auth $auth)

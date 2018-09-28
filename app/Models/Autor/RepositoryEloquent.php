@@ -1,25 +1,24 @@
 <?php
 
-namespace App\Models\Receita;
+namespace App\Models\Autor;
 
-use App\Models\Receita\Interfaces\RepositoryEloquent as RepositoryEloquentInterface;
 use library\Repositories\RepositoryInterface;
 use Carbon\Carbon;
 
 class RepositoryEloquent implements RepositoryInterface
 {
 
-    protected $receita;
+    protected $autor;
 
-    public function __construct(Receita $receita)
+    public function __construct(Autor $autor)
     {
-        $this->receita = $receita;
+        $this->autor = $autor;
     }
 
 
-    public function all($columns = ['*'], $with = ['ingrediente', 'categoria', 'autor'])
+    public function all($columns = ['*'], $with = [])
     {
-        return $this->receita->with($with)->get();
+        return $this->autor->with($with)->get();
     }
 
     public function find($id, $columns = ['*'])
@@ -34,7 +33,7 @@ class RepositoryEloquent implements RepositoryInterface
 
     public function create(array $data)
     {
-        $this->receita->create($data);
+
     }
 
     public function update(array $data, $id)

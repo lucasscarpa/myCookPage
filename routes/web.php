@@ -33,19 +33,17 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
         });
 
         Route::group(['prefix' => 'categorias', 'as' => 'categorias.'], function () {
-            Route::get('/',             ['as' => 'index',   'uses' => 'CategoriasController@index']);
-            Route::get('/form',         ['as' => 'create',  'uses' => 'CategoriasController@create']);
-            Route::get('/form/{id}',    ['as' => 'edit',    'uses' => 'CategoriasController@edit']);
-            Route::get('/delete',       ['as' => 'delete',  'uses' => 'CategoriasController@destroy']);
+            Route::get('/',             ['as' => 'index',       'uses' => 'CategoriasController@index']);
+            Route::get('/form/{id?}',   ['as' => 'form',        'uses' => 'CategoriasController@form']);
+            Route::get('/cadastrar',    ['as' => 'cadastrar',   'uses' => 'CategoriasController@cadastrar']);
+            Route::get('/delete',       ['as' => 'delete',      'uses' => 'CategoriasController@destroy']);
         });
 
          Route::group(['prefix' => 'receita', 'as' => 'receita.'], function () {
-            Route::get('/',           ['as' => 'index',    'uses' => 'ReceitaController@index'], function () {
-            	dd('oi');
-            });
-            Route::get('/filtrar',          ['as' => 'filtrar',      'uses' => 'ReceitaController@filtrar']);
-            Route::get('/form',             ['as' => 'form',         'uses' => 'ReceitaController@form']);
-            Route::post('/cadastrar',        ['as' => 'cadastrar',    'uses' => 'ReceitaController@cadastrar']);
+            Route::get('/',             ['as' => 'index',    'uses' => 'ReceitaController@index']);
+            Route::get('/filtrar',      ['as' => 'filtrar',      'uses' => 'ReceitaController@filtrar']);
+            Route::get('/form/{id?}',   ['as' => 'form',         'uses' => 'ReceitaController@form']);
+            Route::post('/cadastrar',   ['as' => 'cadastrar',    'uses' => 'ReceitaController@cadastrar']);
         });
     });
 });

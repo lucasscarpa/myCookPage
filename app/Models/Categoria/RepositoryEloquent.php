@@ -2,10 +2,10 @@
 
 namespace App\Models\Categoria;
 
-use App\Models\Categoria\Interfaces\RepositoryEloquent as RepositoryEloquentInterface;
+use library\Repositories\RepositoryInterface;
 use Carbon\Carbon;
 
-class RepositoryEloquent implements RepositoryEloquentInterface
+class RepositoryEloquent implements RepositoryInterface
 {
 
     protected $categoria;
